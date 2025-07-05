@@ -1,0 +1,23 @@
+backend:
+  name: git-gateway
+  branch: main # or your default branch
+
+media_folder: "public/assets"
+public_folder: "/assets"
+local_backend: true
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "src/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Author", name: "author", widget: "string", default: "Your Name" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Tags", name: "tags", widget: "list", default: [] }
+      - { label: "Excerpt", name: "excerpt", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
